@@ -1,17 +1,22 @@
 #!/bin/sh
 
-if [ ! -f $BACKUP_DIR/.gitconfig ]; then
-    cp ~/.gitconfig $BACKUP_DIR/.gitconfig
-fi
+backup .gitconfig
 
 for f in `find $ROOT_DIR/git/config -type f -name '*.config'`; do
     echo $f
     while read line; do
-        if [[ $line =~ ^\[.*\]$ ]] ;
-        then
-            tag=`echo ${line%]} | cut -c 2-`
+        if [[ $line =~ ^\[.*\] ]]; then
+            tag=`echo ${line} | cut -d"[" -f2 | cut -d"]" -f1`
         else
-            echo $tag
+            command=`echo ${line} | cut -d"=" -f1`
+            raw__=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f1`
+            raw_=${raw__## }
+            raw=${raw_% }
+            value_=${raw#\"}
+            value=${value_%\"}
+            # comment=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f2-`
+            echo $tag.$command $value $comment
+            git config --global --replace-all $tag.$command "${value}"
         fi
     done < $f
 done

@@ -63,3 +63,22 @@ is_windows() {
         return 1
     fi
 }
+
+backup() {
+    if [ ! -f $BACKUP_DIR/$1 ]; then
+        if [ -f ~/$1 ]; then
+            mv ~/$1 $BACKUP_DIR/$1
+        else
+            touch $BACKUP_DIR/$1
+        fi
+    fi
+}
+
+make_link() {
+    ln -sf $ROOT_DIR/$1 ~/
+    # if [ is_windows ]; then
+    #     mklink 
+    # else
+    #     ln -sf $ROOT_DIR/$1 ~/
+    # fi
+}
