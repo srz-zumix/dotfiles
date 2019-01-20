@@ -1,6 +1,9 @@
 #!/bin/sh
 
-. setup/utils.sh
+. setup/setup_config.sh
+
+# make dotfiles config
+echo export DOTFILES_ROOT=${ROOT_DIR} > ~/.dotfiles_config
 
 . setup/install/omnisharp.sh
 . setup/install/gitconfig.sh
