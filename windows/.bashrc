@@ -21,3 +21,5 @@ fi
 if [ -f "c:/Python27amd64/python.exe" ]; then
   alias pyenv27='python -m virtualenv --python="c:/Python27amd64/python.exe"'
 fi
+
+export MSYS=winsymlinks:nativestrict

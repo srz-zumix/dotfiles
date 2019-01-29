@@ -19,10 +19,11 @@ backup() {
 }
 
 make_link() {
-    ln -sf $ROOT_DIR/$1 ~/
-    # if [ is_windows ]; then
-    #     mklink 
-    # else
-    #     ln -sf $ROOT_DIR/$1 ~/
-    # fi
+    if [ is_windows ]; then
+      export MSYS=winsymlinks:nativestrict
+      ln -sf $ROOT_DIR/$1 ~/
+      # (cd ~/ && mklink /H $1 $ROOT_DIR/$1)
+    else
+      ln -sf $ROOT_DIR/$1 ~/
+    fi
 }

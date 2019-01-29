@@ -27,3 +27,5 @@ export HISTCONTROL=ignoreboth
 if [ is_windows ]; then
   . ${DOTFILES_ROOT}/windows/.bashrc
 fi
+
+alias github-ssh-keygen="ssh-keygen -t rsa -b 4096 -C `git config user.email`"
