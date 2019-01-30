@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ln -sf $ROOT_DIR/.omnisharp ~/.omnisharp
+ln -snf $ROOT_DIR/.omnisharp ~/.omnisharp
