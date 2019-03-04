@@ -22,6 +22,7 @@ fi
 
 # environments
 export HISTCONTROL=ignoreboth
+export HISTIGNORE=history:echo:'#*'
 
 # aliases
 if [ is_windows ]; then
