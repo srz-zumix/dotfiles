@@ -24,9 +24,13 @@ fi
 export HISTCONTROL=ignoreboth
 export HISTIGNORE=history:echo:'#*'
 
-# aliases
 if [ is_windows ]; then
   . ${DOTFILES_ROOT}/windows/.bashrc
 fi
 
+# aliases
 alias github-ssh-keygen="ssh-keygen -t rsa -b 4096 -C `git config user.email`"
+alias docker-cleanbuild="docker build --no-cache=true"
+
+# added by travis gem
+[ -f C:/Users/zumix/.travis/travis.sh ] && source C:/Users/zumix/.travis/travis.sh
