@@ -7,7 +7,12 @@ function git_config_update() {
       echo $f
       while read line; do
           if [[ $line =~ ^\[.*\] ]]; then
-              tag=`echo ${line} | cut -d"[" -f2 | cut -d"]" -f1`
+              tag_=`echo ${line} | cut -d"[" -f2 | cut -d"]" -f1`
+              tag=`echo ${tag_} | cut -d" " -f1`
+              if [[ $tag_ =~ \".*\" ]]; then
+                subtag=`echo ${tag_} | cut -d" " -f2-`
+                tag+=.`echo ${subtag//\"}`
+              fi
           else
               if [[ $line =~ "^#" ]]; then
                 # comment=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f2-`
@@ -22,7 +27,7 @@ function git_config_update() {
                 value=${value_%\"}
                 # comment=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f2-`
                 echo $tag.$command $value $comment
-                git config --global --replace-all $tag.$command "${value}"
+                git config --global --replace-all "$tag".$command "${value}"
               fi
           fi
       done < $f
@@ -31,6 +36,6 @@ function git_config_update() {
 
 git_config_update git/config
 
-# if [ is_windows ]; then
-#   git_config_update git/windows/config
-# fi
+if [ is_windows ]; then
+  git_config_update git/windows/config
+fi
