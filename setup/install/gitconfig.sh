@@ -39,3 +39,6 @@ git_config_update git/config
 if [ is_windows ]; then
   git_config_update git/windows/config
 fi
+
+gem install git-browse-remote
+# git browse-remote --init
