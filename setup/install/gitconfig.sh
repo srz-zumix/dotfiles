@@ -42,3 +42,6 @@ fi
 
 gem install git-browse-remote
 # git browse-remote --init
+
+# git-delete-squashed
+# npm install --global git-delete-squashed
