@@ -4,17 +4,17 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # user local settings
 if [ -f ~/.bashrc_local ]; then
-	. ~/.bashrc_local
+  . ~/.bashrc_local
 fi
 
 # dotfiles config
 if [ -f ~/.dotfiles_config ]; then
-	. ~/.dotfiles_config
+  . ~/.dotfiles_config
 fi
 
 # load utils
@@ -36,4 +36,4 @@ alias github-ssh-keygen="ssh-keygen -t rsa -b 4096 -C `git config user.email`"
 alias docker-cleanbuild="docker build --no-cache=true"
 
 # added by travis gem
-[ -f C:/Users/zumix/.travis/travis.sh ] && source C:/Users/zumix/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
