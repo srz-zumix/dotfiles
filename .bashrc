@@ -27,6 +27,9 @@ export HISTIGNORE=history:echo:'#*'
 if [ is_windows ]; then
   . ${DOTFILES_ROOT}/windows/.bashrc
 fi
+if [ is_osx ]; then
+  . ${DOTFILES_ROOT}/osx/.bashrc
+fi
 
 # aliases
 alias github-ssh-keygen="ssh-keygen -t rsa -b 4096 -C `git config user.email`"
