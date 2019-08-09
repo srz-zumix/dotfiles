@@ -7,6 +7,7 @@ BACKUP_DIR=$ROOT_DIR/backup
 echo $ROOT_DIR
 
 . $ROOT_DIR/utils.sh
+. $ROOT_DIR/setup/util/tools.sh
 
 backup() {
     if [ ! -f $BACKUP_DIR/$1 ]; then
