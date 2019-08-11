@@ -57,3 +57,4 @@ is_windows() {
         return 1
     fi
 }
+

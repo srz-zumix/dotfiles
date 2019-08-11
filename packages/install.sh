@@ -2,6 +2,4 @@
 
 . ../utils.sh
 
-if [ is_windows ]; then
-  windows/install.sh
-fi
+is_windows && windows/install.sh

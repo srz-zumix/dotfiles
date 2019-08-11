@@ -6,6 +6,9 @@ function git_config_update() {
   for f in `find $ROOT_DIR/$1 -type f -name '*.config'`; do
       echo $f
       while read line; do
+          if [[ -z $line ]]; then
+            continue
+          fi
           if [[ $line =~ ^\[.*\] ]]; then
               tag_=`echo ${line} | cut -d"[" -f2 | cut -d"]" -f1`
               tag=`echo ${tag_} | cut -d" " -f1`
@@ -40,7 +43,7 @@ function git_config_update() {
 
 git_config_update git/config
 
-if [ is_windows ]; then
+if is_windows; then
   git_config_update git/windows/config
 fi
 
