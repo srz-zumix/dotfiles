@@ -47,7 +47,7 @@ if is_windows; then
   git_config_update git/windows/config
 fi
 
-gem install git-browse-remote
+gem_install git-browse-remote
 # git browse-remote --init
 
 # git-delete-squashed
