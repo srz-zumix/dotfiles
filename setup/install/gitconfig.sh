@@ -23,8 +23,12 @@ function git_config_update() {
                 # raw__=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f1`
                 raw_=${raw__## }
                 raw=${raw_% }
-                value_=${raw#\"}
-                value=${value_%\"}
+                if [[ $raw =~ "^\"" ]] && [[ $raw =~ "\"$" ]]; then
+                  value_=${raw#\"}
+                  value=${value_%\"}
+                else
+                  value=$raw
+                fi
                 # comment=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f2-`
                 echo $tag.$command $value $comment
                 git config --global --replace-all "$tag".$command "${value}"
