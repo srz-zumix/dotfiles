@@ -26,7 +26,7 @@ function git_config_update() {
                 # raw__=`echo ${line} | cut -d"=" -f2- | cut -d"#" -f1`
                 raw_=${raw__## }
                 raw=${raw_% }
-                if [[ $raw =~ "^\"" ]] && [[ $raw =~ "\"$" ]]; then
+                if [[ $raw =~ ^\".*\"$ ]]; then
                   value_=${raw#\"}
                   value=${value_%\"}
                 else
