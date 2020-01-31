@@ -17,3 +17,5 @@ brew update
 install_ruby
 
 brew install git
+# macOS Catalina default shell zsh
+brew install bash
