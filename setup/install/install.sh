@@ -1,5 +1,5 @@
 #!/bin/sh
 
 if is_osx; then
-  ./osx/install.sh
+  . $ROOT_DIR/setup/install/osx/install.sh
 fi
