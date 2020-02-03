@@ -16,6 +16,6 @@ function zshconfig() {
     make_link .zprofile
     make_link .zshrc
 }
-if !(type "zsh" > /dev/null 2>&1); then
+if (type "zsh" > /dev/null 2>&1); then
     zshconfig
 fi
