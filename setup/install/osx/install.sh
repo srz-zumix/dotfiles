@@ -19,3 +19,5 @@ install_ruby
 brew install git
 # macOS Catalina default shell zsh
 brew install bash
+
+brew cask install karabiner-elements
