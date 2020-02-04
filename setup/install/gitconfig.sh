@@ -52,3 +52,20 @@ gem_install git-browse-remote
 
 # git-delete-squashed
 # npm install --global git-delete-squashed
+
+function zsh_gitconfig() {
+  if [ ! -d ~/.zsh ]; then
+    mkdir ~/.zsh
+  fi
+  if [ ! -d ~/.zsh/completion ]; then
+    mkdir ~/.zsh/completion/
+  fi
+  curl -s -O https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+  curl -s -O https://raw.github.com/git/git/master/contrib/completion/git-completion.zsh
+  mv git-completion.bash ~/.zsh/completion/git-completion.bash
+  mv git-completion.zsh ~/.zsh/completion/_git
+
+}
+if (type "zsh" > /dev/null 2>&1); then
+    zsh_gitconfig
+fi

@@ -58,3 +58,29 @@ is_windows() {
     fi
 }
 
+sh_detect() {
+  export SHELL_TYPE
+  version=$(set | grep -ai version)
+  case "$version" in
+    *'BASH'*)  SHELL_TYPE='bash'   ;;
+    *'ZSH'*)   SHELL_TYPE='zsh'    ;;
+  esac
+}
+
+is_bash() {
+  sh_detect
+  if [ "$SHELL_TYPE" = "bash" ]; then
+      return 0
+  else
+      return 1
+  fi
+}
+
+is_zsh() {
+  sh_detect
+  if [ "$SHELL_TYPE" = "zsh" ]; then
+      return 0
+  else
+      return 1
+  fi
+}
