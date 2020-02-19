@@ -16,3 +16,7 @@ fi
 [[ -d ~/.rbenv  ]] && \
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
+
+# pyenv
+PATH="$HOME/.pyenv/shims:$PATH"
+eval "$(pyenv init -)"
