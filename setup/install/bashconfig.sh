@@ -16,6 +16,6 @@ function zshconfig() {
     make_link .zprofile
     make_link .zshrc
 }
-if is_zsh; then
+if has_zsh; then
     zshconfig
 fi

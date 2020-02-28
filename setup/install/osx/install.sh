@@ -22,13 +22,23 @@ brew install git-lfs
 brew install bash
 brew install ccache
 brew install pyenv
+brew install npm
 
 brew cask install karabiner-elements
 
 function install_for_zsh() {
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  fi
+  setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 2>/dev/null || true
+  done
+
+  zsh "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+  ln -snf ${ZDOTDIR:-$HOME}/.zprezto $ROOT_DIR/.zprezto
 }
 
-if is_zsh; then
+if has_zsh; then
   install_for_zsh
 fi
