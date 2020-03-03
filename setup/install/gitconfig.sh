@@ -69,3 +69,5 @@ function zsh_gitconfig() {
 if (type "zsh" > /dev/null 2>&1); then
     zsh_gitconfig
 fi
+
+ln ~/.gitconfig $ROOT_DIR/.gitconfig
