@@ -8,7 +8,7 @@ function install_ruby() {
   brew install rbenv ruby-build
 
   RUBY_LATEST_VERSION=$(rbenv install -l | grep -v - | tail -1)
-  rbenv install ${RUBY_LATEST_VERSION}
+  rbenv install -s ${RUBY_LATEST_VERSION}
   rbenv global ${RUBY_LATEST_VERSION}
 }
 
@@ -30,8 +30,10 @@ function install_for_zsh() {
   if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   fi
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  if is_zash; then
+    setopt EXTENDED_GLOB
+  fi
+  for rcfile in `find "${ZDOTDIR:-$HOME}"/.zprezto/runcoms -maxdepth 1 -type f | grep -v README.md`; do
     ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 2>/dev/null || true
   done
 
@@ -42,3 +44,19 @@ function install_for_zsh() {
 if has_zsh; then
   install_for_zsh
 fi
+
+# font
+pushd $TMP_DIR
+
+# Source code pro
+curl -sLO https://github.com/adobe-fonts/source-code-pro/archive/release.zip
+unzip -q release.zip
+cp -a source-code-pro-release/TTF/* ~/Library/Fonts
+
+# Source han code jp
+curl -sLO https://github.com/adobe-fonts/source-han-code-jp/archive/release.zip
+unzip -q release.zip
+cp -a source-han-code-jp-release/OTF/* ~/Library/Fonts
+cp -a source-han-code-jp-release/OTC/* ~/Library/Fonts
+
+popd

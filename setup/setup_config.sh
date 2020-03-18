@@ -3,11 +3,19 @@
 SETUP_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}) && pwd)
 ROOT_DIR=$(dirname $SETUP_DIR)
 BACKUP_DIR=$ROOT_DIR/backup
+TMP_DIR=$ROOT_DIR/tmp
 
 echo $ROOT_DIR
 
 . $ROOT_DIR/utils.sh
 . $ROOT_DIR/setup/util/tools.sh
+
+setup() {
+  mkdir $TMP_DIR
+}
+teardown() {
+  rm -rf $TMP_DIR
+}
 
 backup() {
     if [ ! -f $BACKUP_DIR/$1 ]; then

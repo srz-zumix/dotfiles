@@ -12,3 +12,5 @@ fi
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=110000
 SAVEHIST=100000
+
+zstyle ':prezto:module:git:status:ignore' submodules dirty

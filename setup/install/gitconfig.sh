@@ -66,8 +66,8 @@ function zsh_gitconfig() {
   mv git-completion.zsh ~/.zsh/completion/_git
 
 }
-if (type "zsh" > /dev/null 2>&1); then
+if has_zsh; then
     zsh_gitconfig
 fi
 
-ln ~/.gitconfig $ROOT_DIR/.gitconfig
+ln ~/.gitconfig $ROOT_DIR/.gitconfig 2>/dev/null || true
