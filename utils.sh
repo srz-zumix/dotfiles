@@ -26,6 +26,7 @@ os_detect() {
         *'bsd'*)    PLATFORM='bsd'     ;;
         *'msys'*)   PLATFORM='windows' ;;
         *'cygwin'*) PLATFORM='windows' ;;
+        *'mingw'*)  PLATFORM='windows' ;;
         *)          PLATFORM='unknown' ;;
     esac
 }
