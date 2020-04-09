@@ -20,3 +20,6 @@ fi
 # pyenv
 PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
+
+# nodebrew
+export PATH=${HOME}/.nodebrew/current/bin:${PATH}
