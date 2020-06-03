@@ -22,6 +22,10 @@ brew install git-lfs
 brew install bash
 brew install ccache
 brew install pyenv
+brew install go
+brew install jq
+
+# node-js
 brew install nodebrew
 
 nodebrew setup

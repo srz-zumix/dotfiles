@@ -23,3 +23,6 @@ eval "$(pyenv init -)"
 
 # nodebrew
 export PATH=${HOME}/.nodebrew/current/bin:${PATH}
+
+# go
+PATH="$(go env GOPATH)/bin:$PATH"
