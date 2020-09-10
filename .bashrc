@@ -32,3 +32,4 @@ alias docker-cleanbuild="docker build --no-cache=true"
 
 # added by travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+export KENYA_REF_PARENT=/Users/takazumi.shirayanagi/usr/local/ddd/kenya
