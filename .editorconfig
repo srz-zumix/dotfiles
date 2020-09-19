@@ -9,3 +9,6 @@ end_of_line = lf
 [*.bat]
 charset = shift_jis
 end_of_line = crlf
+
+[git/config/*.config]
+indent_style = tab
