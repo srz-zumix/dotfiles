@@ -36,3 +36,7 @@ export KENYA_REF_PARENT=/Users/takazumi.shirayanagi/usr/local/ddd/kenya
 
 # Drone.io
 export DRONE_SERVER=https://cloud.drone.io
+
+# Dockerhub
+export DOCKERHUB_USER_NAME=srzzumix
+# export DOCKERHUB_USER_PASS=

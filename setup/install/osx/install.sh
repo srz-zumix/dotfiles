@@ -26,11 +26,7 @@ brew install go
 brew install jq
 
 # node-js
-brew install nodebrew
-
-nodebrew setup
-nodebrew install stable
-nodebrew use stable
+brew install nodenv
 
 brew cask install karabiner-elements
 

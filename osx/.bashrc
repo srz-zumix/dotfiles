@@ -22,7 +22,11 @@ PATH="$HOME/.pyenv/shims:$PATH"
 eval "$(pyenv init -)"
 
 # nodebrew
-export PATH=${HOME}/.nodebrew/current/bin:${PATH}
+# export PATH=${HOME}/.nodebrew/current/bin:${PATH}
+
+if which nodenv > /dev/null; then
+  eval "$(nodenv init -)"
+fi
 
 # go
 PATH="$(go env GOPATH)/bin:$PATH"
