@@ -2,3 +2,5 @@ backup/*
 .zprezto
 .gitconfig
 .dotfiles_config
+secret_files/src
+secret_files/dst/*.gpg
