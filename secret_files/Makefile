@@ -11,6 +11,7 @@ clean:
 	rm -rf ${TARGETS}
 
 ${DST_DIR}/%.gpg: ${SRC_DIR}/%
+	rm -rf $@
 	echo ${PASSWD} | gpg --batch --passphrase-fd 0 --symmetric --cipher-algo AES256 --output $@ $<
 
 ${SRC_DIR}/%: ${DST_DIR}/%.gpg

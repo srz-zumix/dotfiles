@@ -30,3 +30,6 @@ fi
 
 # go
 PATH="$(go env GOPATH)/bin:$PATH"
+
+# ponyup
+PATH="~/.local/share/ponyup/bin:$PATH"

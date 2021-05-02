@@ -70,4 +70,4 @@ if has_zsh; then
     zsh_gitconfig
 fi
 
-ln ~/.gitconfig $ROOT_DIR/.gitconfig 2>/dev/null || true
+ln -s ~/.gitconfig $ROOT_DIR/.gitconfig 2>/dev/null || true

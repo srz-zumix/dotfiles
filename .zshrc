@@ -14,3 +14,6 @@ HISTSIZE=110000
 SAVEHIST=100000
 
 zstyle ':prezto:module:git:status:ignore' submodules dirty
+
+# export LSCOLORS=exfxcxdxbxGxDxabagacad
+export LSCOLORS=gxfxcxdxbxGxDxabagacad
