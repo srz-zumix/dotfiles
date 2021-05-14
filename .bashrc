@@ -40,3 +40,5 @@ export DRONE_SERVER=https://cloud.drone.io
 # Dockerhub
 export DOCKERHUB_USER_NAME=srzzumix
 # export DOCKERHUB_USER_PASS=
+
+alias sshls='grep "^Host " ~/.ssh/config | sed s/"^Host "//'
