@@ -64,3 +64,6 @@ cp -a source-han-code-jp-release/OTF/* ~/Library/Fonts
 cp -a source-han-code-jp-release/OTC/* ~/Library/Fonts
 
 popd
+
+# goenv
+git clone https://github.com/syndbg/goenv.git ~/.goenv

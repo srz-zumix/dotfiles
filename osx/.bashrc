@@ -19,7 +19,10 @@ fi
 
 # pyenv
 PATH="$HOME/.pyenv/shims:$PATH"
-eval "$(pyenv init -)"
+if which pyenv > /dev/null; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
 
 # nodebrew
 # export PATH=${HOME}/.nodebrew/current/bin:${PATH}
@@ -30,6 +33,13 @@ fi
 
 # go
 PATH="$(go env GOPATH)/bin:$PATH"
+
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+if which goenv > /dev/null; then
+  eval "$(goenv init -)";
+fi
 
 # ponyup
 PATH="~/.local/share/ponyup/bin:$PATH"
