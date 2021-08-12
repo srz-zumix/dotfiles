@@ -43,3 +43,4 @@ export DOCKERHUB_USER_NAME=srzzumix
 # export DOCKERHUB_USER_PASS=
 
 alias sshls='grep "^Host " ~/.ssh/config | sed s/"^Host "//'
+alias export_dotenv="set -a; source .env; set +a;"
