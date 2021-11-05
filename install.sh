@@ -12,6 +12,7 @@ ln -snf ~/.dotfiles_config $ROOT_DIR/.dotfiles_config
 . setup/install/install.sh
 . setup/install/omnisharp.sh
 . setup/install/gitconfig.sh
+. setup/install/gh.sh
 . setup/install/bashconfig.sh
 
 teardown

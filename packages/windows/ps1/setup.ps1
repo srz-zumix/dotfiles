@@ -13,6 +13,7 @@ Install-PackageProvider nuget -Force
 Do-Install winmerge-jp
 Do-Install ilmerge
 Do-Install 7zip
+Do-Install gh
 Do-Install hub
 Do-Install tortoisegit
 
