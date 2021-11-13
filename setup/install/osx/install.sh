@@ -23,6 +23,7 @@ brew install bash
 brew install ccache
 brew install pyenv
 brew install go
+brew install gh
 brew install jq
 brew install peco
 brew install git-filter-repo
