@@ -13,7 +13,7 @@ if is_bash; then
 fi
 
 # rbenv
-[[ -d ~/.rbenv  ]] && \
+[[ -d ~/.rbenv ]] && \
   export PATH=${HOME}/.rbenv/bin:${PATH} && \
   eval "$(rbenv init -)"
 
@@ -42,4 +42,12 @@ if which goenv > /dev/null; then
 fi
 
 # ponyup
-PATH="~/.local/share/ponyup/bin:$PATH"
+PATH="${HOME}/.local/share/ponyup/bin:$PATH"
+
+# rust
+PATH="${HOME}/.cargo/bin:$PATH"
+
+# direnv
+if which direnv > /dev/null; then
+  eval "$(direnv hook bash)"
+fi

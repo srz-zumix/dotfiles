@@ -27,6 +27,7 @@ brew install gh
 brew install jq
 brew install peco
 brew install git-filter-repo
+brew install direnv
 
 # node-js
 brew install nodenv

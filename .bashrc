@@ -20,10 +20,10 @@ export HISTCONTROL=ignoreboth
 export HISTIGNORE=history:echo:'#*'
 
 if is_windows; then
-  . ${DOTFILES_ROOT}/windows/.bashrc
+  . "${DOTFILES_ROOT}/windows/.bashrc"
 fi
 if is_osx; then
-  . ${DOTFILES_ROOT}/osx/.bashrc
+  . "${DOTFILES_ROOT}/osx/.bashrc"
 fi
 
 # aliases
