@@ -31,6 +31,9 @@ alias github-ssh-keygen="ssh-keygen -t rsa -b 4096 -C `git config user.email`"
 alias docker-cleanbuild="docker build --no-cache=true"
 alias docker-nsenter="docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh"
 
+function docker-tags {
+  curl -s https://registry.hub.docker.com/v1/repositories/$1/tags | jq -r '.[].name'
+}
 # added by travis gem
 [ ! -s ~/.travis/travis.sh ] || source ~/.travis/travis.sh
 export KENYA_REF_PARENT=/Users/takazumi.shirayanagi/usr/local/ddd/kenya

@@ -44,10 +44,13 @@ fi
 # ponyup
 PATH="${HOME}/.local/share/ponyup/bin:$PATH"
 
-# rust
-PATH="${HOME}/.cargo/bin:$PATH"
+# rust/cargo
+. "$HOME/.cargo/env"
 
 # direnv
 if which direnv > /dev/null; then
   eval "$(direnv hook bash)"
 fi
+
+# binutils
+export PATH="/usr/local/opt/binutils/bin:$PATH"
