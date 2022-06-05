@@ -34,6 +34,10 @@ alias docker-nsenter="docker run -it --privileged --pid=host debian nsenter -t 1
 function docker-tags {
   curl -s https://registry.hub.docker.com/v1/repositories/$1/tags | jq -r '.[].name'
 }
+function docker-rmi-tags {
+  docker images | grep $1 | awk '{print $2}' | xargs -I{} docker rmi $1:{}
+}
+
 # added by travis gem
 [ ! -s ~/.travis/travis.sh ] || source ~/.travis/travis.sh
 export KENYA_REF_PARENT=/Users/takazumi.shirayanagi/usr/local/ddd/kenya
@@ -47,3 +51,4 @@ export DOCKERHUB_USER_NAME=srzzumix
 
 alias sshls='grep "^Host " ~/.ssh/config | sed s/"^Host "//'
 alias export_dotenv="set -a; source .env; set +a;"
+. "$HOME/.cargo/env"
