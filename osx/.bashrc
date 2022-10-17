@@ -72,4 +72,4 @@ if which direnv > /dev/null; then
 fi
 
 # binutils
-export PATH="/usr/local/opt/binutils/bin:$PATH"
+# export PATH="/usr/local/opt/binutils/bin:$PATH"
