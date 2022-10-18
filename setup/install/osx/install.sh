@@ -28,6 +28,7 @@ brew install jq
 brew install peco
 brew install git-filter-repo
 brew install direnv
+brew install aria2
 
 # node-js
 brew install nodenv

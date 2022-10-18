@@ -47,6 +47,12 @@ if is_windows; then
   git_config_update git/windows/config
 fi
 
+if is_osx; then
+  # brew tap jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git && brew install rs-git-fsmonitor
+  git_config_update git/osx/config
+  ln -s $ROOT_DIR/osx/.gitconfig_for_homebrew_tap ~/.gitconfig_for_homebrew_tap 2>/dev/null || true
+fi
+
 gem_install git-browse-remote
 # git browse-remote --init
 
