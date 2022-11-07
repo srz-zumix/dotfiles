@@ -29,6 +29,7 @@ brew install peco
 brew install git-filter-repo
 brew install direnv
 brew install aria2
+brew install pre-commit
 
 # node-js
 brew install nodenv
@@ -75,3 +76,6 @@ git clone https://github.com/syndbg/goenv.git ~/.goenv
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+cargo install typos-cli
+go install github.com/client9/misspell/cmd/misspell@latest
