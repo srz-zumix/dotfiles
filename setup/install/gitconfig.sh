@@ -76,4 +76,6 @@ if has_zsh; then
     zsh_gitconfig
 fi
 
+git config --global lfs.storage ${HOME}/.lfs_cache
+
 ln -s ~/.gitconfig $ROOT_DIR/.gitconfig 2>/dev/null || true

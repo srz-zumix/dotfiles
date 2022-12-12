@@ -30,6 +30,7 @@ brew install git-filter-repo
 brew install direnv
 brew install aria2
 brew install pre-commit
+brew install pwgen
 
 # node-js
 brew install nodenv
