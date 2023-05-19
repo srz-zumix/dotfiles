@@ -73,3 +73,7 @@ fi
 
 # binutils
 # export PATH="/usr/local/opt/binutils/bin:$PATH"
+
+# vscode
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
