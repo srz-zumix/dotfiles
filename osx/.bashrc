@@ -1,8 +1,8 @@
 
 # PS1
 if is_bash; then
-  . /usr/local/etc/bash_completion.d/git-prompt.sh
-  . /usr/local/etc/bash_completion.d/git-completion.bash
+  . "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-prompt.sh"
+  . "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-completion.bash"
 
   GIT_PS1_SHOWDIRTYSTATE=true
 fi

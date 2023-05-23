@@ -53,9 +53,6 @@ if is_osx; then
   ln -s $ROOT_DIR/osx/.gitconfig_for_homebrew_tap ~/.gitconfig_for_homebrew_tap 2>/dev/null || true
 fi
 
-gem_install git-browse-remote
-# git browse-remote --init
-
 # git-delete-squashed
 # npm install --global git-delete-squashed
 
