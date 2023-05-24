@@ -35,7 +35,10 @@ brew install pwgen
 # node-js
 brew install nodenv
 
+# karabiner-elements
 brew install --cask karabiner-elements
+rm -f ~/.config/karabiner/karabiner.json
+ln -s "${ROOT_DIR}/osx/karabiner.json" ~/.config/karabiner/karabiner.json 2>/dev/null || true
 
 function install_for_zsh() {
   if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
