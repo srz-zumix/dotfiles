@@ -31,6 +31,7 @@ brew install direnv
 brew install aria2
 brew install pre-commit
 brew install pwgen
+brew install xcodes
 
 # node-js
 brew install nodenv
