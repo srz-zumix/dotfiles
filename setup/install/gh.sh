@@ -2,5 +2,5 @@
 
 # for gh
 
-# gh poi
-gh extension install https://github.com/seachicken/gh-poi.git
+gh extension install seachicken/gh-poi
+gh extension install k1LoW/gh-do

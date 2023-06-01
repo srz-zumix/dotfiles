@@ -19,6 +19,9 @@ fi
 export HISTCONTROL=ignoreboth
 export HISTIGNORE=history:echo:'#*'
 
+# dotnet optout
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 if is_windows; then
   . "${DOTFILES_ROOT}/windows/.bashrc"
 fi

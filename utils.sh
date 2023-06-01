@@ -19,21 +19,21 @@ ostype() {
 }
 
 os_detect() {
-    export PLATFORM
+    export OS_DETECT_PLATFORM
     case "$(ostype)" in
-        *'linux'*)  PLATFORM='linux'   ;;
-        *'darwin'*) PLATFORM='osx'     ;;
-        *'bsd'*)    PLATFORM='bsd'     ;;
-        *'msys'*)   PLATFORM='windows' ;;
-        *'cygwin'*) PLATFORM='windows' ;;
-        *'mingw'*)  PLATFORM='windows' ;;
-        *)          PLATFORM='unknown' ;;
+        *'linux'*)  OS_DETECT_PLATFORM='linux'   ;;
+        *'darwin'*) OS_DETECT_PLATFORM='osx'     ;;
+        *'bsd'*)    OS_DETECT_PLATFORM='bsd'     ;;
+        *'msys'*)   OS_DETECT_PLATFORM='windows' ;;
+        *'cygwin'*) OS_DETECT_PLATFORM='windows' ;;
+        *'mingw'*)  OS_DETECT_PLATFORM='windows' ;;
+        *)          OS_DETECT_PLATFORM='unknown' ;;
     esac
 }
 
 is_osx() {
     os_detect
-    if [ "$PLATFORM" = "osx" ]; then
+    if [ "$OS_DETECT_PLATFORM" = "osx" ]; then
         return 0
     else
         return 1
@@ -43,7 +43,7 @@ alias is_mac=is_osx
 
 is_linux() {
     os_detect
-    if [ "$PLATFORM" = "linux" ]; then
+    if [ "$OS_DETECT_PLATFORM" = "linux" ]; then
         return 0
     else
         return 1
@@ -52,7 +52,7 @@ is_linux() {
 
 is_windows() {
     os_detect
-    if [ "$PLATFORM" = "windows" ]; then
+    if [ "$OS_DETECT_PLATFORM" = "windows" ]; then
         return 0
     else
         return 1

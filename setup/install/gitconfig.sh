@@ -75,6 +75,10 @@ fi
 
 git config --global lfs.storage ${HOME}/.lfs_cache
 
+if [ -f ~/.mailmap ]; then
+  git config --global mailmap.file ${HOME}/.mailmap
+fi
+
 PARENT_DIR=$(dirname "${ROOT_DIR}")
 git config --global includeIf."gitdir:${PARENT_DIR}/**".path "~/.gitconfig_me"
 ln -s $ROOT_DIR/git/.gitconfig_me ~/.gitconfig_me 2>/dev/null || true
