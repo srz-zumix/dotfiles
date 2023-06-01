@@ -5,6 +5,7 @@ else
   HOMEBREW_PREFIX=/usr/local
 fi
 
+eval "$(/${HOMEBREW_PREFIX}/bin/brew shellenv)"
 
 # PS1
 if is_bash; then
