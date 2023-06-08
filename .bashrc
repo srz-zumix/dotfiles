@@ -2,11 +2,6 @@
 
 # User specific aliases and functions
 
-# user local settings
-if [ -f ~/.bashrc_local ]; then
-  . ~/.bashrc_local
-fi
-
 # dotfiles config
 if [ -f ~/.dotfiles_config ]; then
   . ~/.dotfiles_config
@@ -54,3 +49,11 @@ export DOCKERHUB_USER_NAME=srzzumix
 alias sshls='grep "^Host " ~/.ssh/config | sed s/"^Host "//'
 alias export_dotenv="set -a; source .env; set +a;"
 . "$HOME/.cargo/env"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+
+# user local settings
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi

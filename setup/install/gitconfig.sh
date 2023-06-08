@@ -2,6 +2,13 @@
 
 backup .gitconfig
 
+if [ -z $(git config --global user.name)]; then
+  git config --global user.name dummy
+fi
+if [ -z $(git config --global user.email)]; then
+  git config --global user.email dummy
+fi
+
 function git_config_update() {
   for f in `find $ROOT_DIR/$1 -type f -name '*.config'`; do
       echo $f

@@ -1,16 +1,16 @@
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 if [[ "${UNAME_MACHINE}" == "arm64" ]]; then
-  HOMEBREW_PREFIX=/opt/homebrew
+  HOMEBREW_PREFIX_PATH=/opt/homebrew
 else
-  HOMEBREW_PREFIX=/usr/local
+  HOMEBREW_PREFIX_PATH=/usr/local
 fi
 
-eval "$(/${HOMEBREW_PREFIX}/bin/brew shellenv)"
+eval "$(${HOMEBREW_PREFIX_PATH}/bin/brew shellenv)"
 
 # PS1
 if is_bash; then
-  . "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-prompt.sh"
-  . "${HOMEBREW_PREFIX}/etc/bash_completion.d/git-completion.bash"
+  . "${HOMEBREW_PREFIX_PATH}/etc/bash_completion.d/git-prompt.sh"
+  . "${HOMEBREW_PREFIX_PATH}/etc/bash_completion.d/git-completion.bash"
 
   GIT_PS1_SHOWDIRTYSTATE=true
 fi
@@ -40,9 +40,10 @@ function no_host_ps1() {
 default_ps1
 
 # rbenv
-[[ -d ~/.rbenv ]] && \
-  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+if [[ -d "~/.rbenv" ]]; then
+  export PATH=${HOME}/.rbenv/bin:${PATH}
   eval "$(rbenv init -)"
+fi
 
 # pyenv
 PATH="$HOME/.pyenv/shims:$PATH"

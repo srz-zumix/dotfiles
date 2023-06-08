@@ -24,6 +24,7 @@ brew install ccache
 brew install pyenv
 brew install go
 brew install gh
+brew install jenv
 brew install jq
 brew install peco
 brew install git-filter-repo
@@ -32,6 +33,9 @@ brew install aria2
 brew install pre-commit
 brew install pwgen
 brew install xcodes
+brew install --cask docker
+
+brew install "${ROOT_DIR}/packages/brew/sshpass.rb"
 
 # node-js
 brew install nodenv
@@ -84,3 +88,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 cargo install typos-cli
 go install github.com/client9/misspell/cmd/misspell@latest
+
+# disable spotlight
+mdutil -a -i off
