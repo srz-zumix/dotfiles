@@ -12,9 +12,11 @@ make_link .bash_profile
 function zshconfig() {
     backup .zprofile
     backup .zshrc
+    backup .zpreztorc
 
     make_link .zprofile
     make_link .zshrc
+    make_link .zpreztorc
 }
 if has_zsh; then
     zshconfig

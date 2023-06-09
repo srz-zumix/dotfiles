@@ -53,7 +53,8 @@ function install_for_zsh() {
     setopt EXTENDED_GLOB
   fi
   for rcfile in `find "${ZDOTDIR:-$HOME}"/.zprezto/runcoms -maxdepth 1 -type f | grep -v README.md`; do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" 2>/dev/null || true
+    RCFILE_NAME=$(basename $rcfile)
+    [ ! -f "${ZDOTDIR:-$HOME}/.${RCFILE_NAME}" ] && ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${RCFILE_NAME}"
   done
 
   zsh "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"

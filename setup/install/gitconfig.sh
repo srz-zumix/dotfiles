@@ -2,10 +2,10 @@
 
 backup .gitconfig
 
-if [ -z $(git config --global user.name)]; then
+if [ -z $(git config --global user.name) ]; then
   git config --global user.name dummy
 fi
-if [ -z $(git config --global user.email)]; then
+if [ -z $(git config --global user.email) ]; then
   git config --global user.email dummy
 fi
 
