@@ -40,13 +40,13 @@ COPIED_MARKER="# dotfiles: Copied from ${SRC_HOSTNAME}"
 COPIED_MARKER_BEGIN="${COPIED_MARKER} :: begin"
 COPIED_MARKER_END="${COPIED_MARKER} :: end"
 
-sshpass -p "${PASSWORD}" ssh "${IPADDR}" git config user.name | xargs -I{} git config --global user.name {} 
+sshpass -p "${PASSWORD}" ssh "${IPADDR}" git config user.name  | xargs -I{} git config --global user.name  {} 
 sshpass -p "${PASSWORD}" ssh "${IPADDR}" git config user.email | xargs -I{} git config --global user.email {} 
 
 function home_config() {
   FILENAME=$1
   if [ ! -f "~/${FILENAME}" ]; then
-    sshpass -p "${PASSWORD}" scp "${IPADDR}:~/${FILENAME}" "${HOME}"
+    sshpass -p "${PASSWORD}" scp "${IPADDR}:~/${FILENAME}" "${HOME}/${FILENAME}"
   fi
 }
 
@@ -54,6 +54,7 @@ home_config .mailmap
 home_config .gitconfig_local
 home_config .bashrc_local
 home_config .actrc
+home_config .config/infracost/credentials.yml
 
 
 if ! grep "${COPIED_MARKER}" ~/.ssh/config >/dev/null 2>/dev/null; then
@@ -66,5 +67,10 @@ sshpass -p "${PASSWORD}" ssh "${IPADDR}" ls ~/.ssh \
   | grep .pub \
   | peco --prompt "Select Copy sshkey" --rcfile "${ROOT_DIR}/peco/config.json" \
   | xargs -I{} bash -c "scp_sshkey {} \"${IPADDR}\" \"${PASSWORD}\""
+
+sshpass -p "${PASSWORD}" ssh "${IPADDR}" ls ~/Downloads \
+  | grep .json \
+  | peco --prompt "Select Copy json" --rcfile "${ROOT_DIR}/peco/config.json" \
+  | xargs -I{} sshpass -p "${PASSWORD}" scp "${IPADDR}:~/Downloads/{}" "${HOME}/Downloads/{}"
 
 echo ok

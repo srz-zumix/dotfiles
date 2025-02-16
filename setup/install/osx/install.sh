@@ -21,21 +21,34 @@ brew install git-lfs
 # macOS Catalina default shell zsh
 brew install bash
 brew install ccache
+brew install coreutils
 brew install pyenv
 brew install go
 brew install gh
-brew install jenv
+brew install git-filter-repo
+brew install grep
 brew install jq
 brew install peco
 brew install git-filter-repo
 brew install direnv
 brew install aria2
+brew install reviewdog/tap/reviewdog 
 brew install pre-commit
 brew install pwgen
+brew install tfenv
 brew install xcodes
 brew install --cask docker
+brew install --cask google-cloud-sdk
+brew install aquaproj/aqua/aqua
+brew install asdf
 
 brew install "${ROOT_DIR}/packages/brew/sshpass.rb"
+
+# dotnet
+brew tap isen-ng/dotnet-sdk-versions
+brew install --cask dotnet
+# brew install --cask dotnet-sdk7-0-400
+# brew install --cask dotnet-sdk6-0-400
 
 # node-js
 brew install nodenv
@@ -81,6 +94,13 @@ cp -a source-han-code-jp-release/OTC/* ~/Library/Fonts
 
 popd
 
+# java
+brew install --cask temurin
+brew install jenv
+jenv enable-plugin export
+jenv add "$(/usr/libexec/java_home)"
+jenv global "$(jenv versions | grep temurin | head -1 | awk '{print $1}')"
+
 # goenv
 git clone https://github.com/syndbg/goenv.git ~/.goenv
 
@@ -91,4 +111,4 @@ cargo install typos-cli
 go install github.com/client9/misspell/cmd/misspell@latest
 
 # disable spotlight
-mdutil -a -i off
+sudo mdutil -a -i off

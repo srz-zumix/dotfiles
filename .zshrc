@@ -15,8 +15,3 @@ SAVEHIST=100000
 
 zstyle ':prezto:module:git:status:ignore' submodules dirty
 
-# export LSCOLORS=exfxcxdxbxGxDxabagacad
-export LSCOLORS=gxfxcxdxbxGxDxabagacad
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools

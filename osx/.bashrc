@@ -55,6 +55,7 @@ fi
 # nodebrew
 # export PATH=${HOME}/.nodebrew/current/bin:${PATH}
 
+PATH="$HOME/.nodenv/bin:$PATH"
 if which nodenv > /dev/null; then
   eval "$(nodenv init -)"
 fi
@@ -67,6 +68,14 @@ export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 if which goenv > /dev/null; then
   eval "$(goenv init -)";
+fi
+
+# ocaml/opam
+if [[ -r "${HOME}/.opam/opam-init/init.zsh" ]]; then
+  source "${HOME}/.opam/opam-init/init.zsh"  > /dev/null 2> /dev/null
+fi
+if which opam > /dev/null; then
+  eval $(opam env)
 fi
 
 # ponyup
@@ -86,3 +95,19 @@ fi
 # vscode
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+# rider
+export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+
+# java home
+export JAVA_HOME="$(/usr/libexec/java_home)"
+
+# Slack
+alias slack-devtool="SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app"
+
+# asdf
+if which asdf > /dev/null; then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+  if is_bash; then
+    eval "$(asdf completion bash)"
+  fi
+fi

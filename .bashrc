@@ -50,8 +50,29 @@ alias sshls='grep "^Host " ~/.ssh/config | sed s/"^Host "//'
 alias export_dotenv="set -a; source .env; set +a;"
 . "$HOME/.cargo/env"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export _DOTNET_ROOT=/usr/local/share/dotnet/
+export DOTNET_ROOT=$_DOTNET_ROOT
+export DOTNET_ROOT_ARM64=$_DOTNET_ROOT
+# export DOTNET_ROOT_X64=$_DOTNET_ROOT
+export PATH=$PATH:$_DOTNET_ROOT:$_DOTNET_ROOT/tools
+
+# powershell
+export POWERSHELL_TELEMETRY_OPTOUT=1
+# brew
+export HOMEBREW_NO_ANALYTICS=1
+
+# aqua
+export PATH="$(aqua root-dir)/bin:$PATH"
+
+# gh
+if is_bash; then
+  eval "$(gh completion -s bash)"
+  eval "$(gh copilot alias -- bash)" || :
+fi
+if is_zsh; then
+  eval "$(gh completion -s zsh)"
+  eval "$(gh copilot alias -- zsh)" || :
+fi
 
 # user local settings
 if [ -f ~/.bashrc_local ]; then
