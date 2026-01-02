@@ -57,7 +57,7 @@ fi
 if is_osx; then
   # brew tap jgavris/rs-git-fsmonitor https://github.com/jgavris/rs-git-fsmonitor.git && brew install rs-git-fsmonitor
   git_config_update git/osx/config
-  ln -s $ROOT_DIR/osx/.gitconfig_for_homebrew_tap ~/.gitconfig_for_homebrew_tap 2>/dev/null || true
+  ln -s $ROOT_DIR/osx/.gitconfig_for_homebrew ~/.gitconfig_for_homebrew 2>/dev/null || true
 fi
 
 # git-delete-squashed
@@ -86,8 +86,13 @@ if [ -f ~/.mailmap ]; then
   git config --global mailmap.file ${HOME}/.mailmap
 fi
 
+git config --global includeIf."gitdir:${HOME}/.nodenv/**".path "~/.gitconfig_fsmonitor_disable"
+ln -s $ROOT_DIR/git/.gitconfig_fsmonitor_disable ~/.gitconfig_fsmonitor_disable 2>/dev/null || true
+
 PARENT_DIR=$(dirname "${ROOT_DIR}")
 git config --global includeIf."gitdir:${PARENT_DIR}/**".path "~/.gitconfig_me"
 ln -s $ROOT_DIR/git/.gitconfig_me ~/.gitconfig_me 2>/dev/null || true
+
+git config --global includeIf."gitdir:${PARENT_DIR}/**".path "~/.gitconfig_me_local"
 
 ln -s ~/.gitconfig $ROOT_DIR/.gitconfig 2>/dev/null || true

@@ -27,6 +27,7 @@ brew install go
 brew install gh
 brew install git-filter-repo
 brew install grep
+brew install jira-cli
 brew install jq
 brew install peco
 brew install git-filter-repo
@@ -52,6 +53,8 @@ brew install --cask dotnet
 
 # node-js
 brew install nodenv
+git clone https://github.com/nodenv/nodenv-default-packages.git $(nodenv root)/plugins/nodenv-default-packages \
+  || git -C $(nodenv root)/plugins/nodenv-default-packages pull
 
 # karabiner-elements
 brew install --cask karabiner-elements

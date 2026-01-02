@@ -52,6 +52,9 @@ if which pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 
+# uv
+PATH="$HOME/.local/bin:$PATH"
+
 # nodebrew
 # export PATH=${HOME}/.nodebrew/current/bin:${PATH}
 
@@ -111,3 +114,15 @@ if which asdf > /dev/null; then
     eval "$(asdf completion bash)"
   fi
 fi
+
+# jira-cli
+if which jira > /dev/null; then
+  if is_bash; then
+    source <(jira completion bash)
+  fi
+  if is_zsh; then
+    eval "$(jira completion zsh)"
+  fi
+fi
+
+alias jira-mytasks='jira issue list -a $(jira me) -s "新規" -s "進行中"'

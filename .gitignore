@@ -5,3 +5,4 @@ backup/*
 secret_files/src
 secret_files/dst/*.gpg
 .DS_Store
+tmp/
