@@ -67,11 +67,9 @@ export PATH="$(aqua root-dir)/bin:$PATH"
 # gh
 if is_bash; then
   eval "$(gh completion -s bash)"
-  eval "$(gh copilot alias -- bash)" || :
 fi
 if is_zsh; then
   eval "$(gh completion -s zsh)"
-  eval "$(gh copilot alias -- zsh)" || :
 fi
 
 # user local settings
